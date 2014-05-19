@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions >
+<tiles-definitions>
+
+	<definition name="default-template" template="/WEB-INF/tiles/default-templet.jsp">
+	</definition>
+
+	<definition name="platform/main" template="/WEB-INF/platform/main.jsp">
+		<put-attribute name="title" value="技术平台" type="string" />
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+	</definition>
+
+	<definition name="platform/login" template="/WEB-INF/platform/login.jsp">
+		<put-attribute name="title" value="技术平台" type="string" />
+	</definition>
+
+</tiles-definitions>

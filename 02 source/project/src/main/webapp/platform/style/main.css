@@ -1,0 +1,43 @@
+#doc {
+	position: absolute;
+	top: 4.5em;
+	bottom: 2em;
+	left: 5em;
+	right: 5em;
+	overflow: hidden;
+}
+#left-menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 15em;
+}
+
+a.head {
+	font-weight: 700;
+	color: #999;
+}
+
+a.head:hover {
+	color: #428bca;
+	text-decoration: none;
+}
+
+.panel-heading > h4 {
+	font-weight: 700;
+}
+
+#right-module {
+	position: absolute;
+	top: 0;
+	left: 16em;
+	bottom: 0;
+	right: 0;
+}
+
+#module {
+	height: 100%;
+	width: 100%;
+	border: none;
+}
