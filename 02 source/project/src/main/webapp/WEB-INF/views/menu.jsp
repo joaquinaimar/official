@@ -22,11 +22,11 @@
 		</div>
 		<div id="system-menu" class="panel-collapse collapse">
 			<shiro:hasPermission name="user-manage">
-				<a href="javascript:swtichModule('/manage/user-manage')"
+				<a href="javascript:swtichModule('manage/user-manage')"
 					class="list-group-item">用户管理</a>
 			</shiro:hasPermission>
 			<shiro:hasPermission name="permit-manage">
-				<a href="javascript:swtichModule('/manage/permit-manage')"
+				<a href="javascript:swtichModule('manage/permit-manage')"
 					class="list-group-item">权限管理</a>
 			</shiro:hasPermission>
 		</div>
