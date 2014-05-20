@@ -22,4 +22,9 @@
 
 	<mvc:view-controller path="/manage/main" view-name="platform/main" />
 	<mvc:view-controller path="/manage" view-name="platform/login" />
+	<mvc:view-controller path="/manage/user-manage"
+		view-name="platform/module/user-manage" />
+	<mvc:view-controller path="/manage/permit-manage"
+		view-name="platform/module/permit-manage" />
+
 </beans>

@@ -12,7 +12,7 @@
 	</div>
 </shirox:hasAnyPermissions>
 
-<shirox:hasAnyPermissions name="user-manage,permiss-manage">
+<shirox:hasAnyPermissions name="user-manage,permit-manage">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h4 class="panel-title">
@@ -22,11 +22,11 @@
 		</div>
 		<div id="system-menu" class="panel-collapse collapse">
 			<shiro:hasPermission name="user-manage">
-				<a href="javascript:swtichModule('user-manage')"
+				<a href="javascript:swtichModule('/manage/user-manage')"
 					class="list-group-item">用户管理</a>
 			</shiro:hasPermission>
 			<shiro:hasPermission name="permit-manage">
-				<a href="javascript:swtichModule('permit-manage')"
+				<a href="javascript:swtichModule('/manage/permit-manage')"
 					class="list-group-item">权限管理</a>
 			</shiro:hasPermission>
 		</div>
