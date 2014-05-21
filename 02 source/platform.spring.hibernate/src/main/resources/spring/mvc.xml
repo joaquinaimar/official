@@ -27,7 +27,7 @@
 		location="classpath:/META-INF/resources/webjars/bootstrap/3.0.3/" />
 	<mvc:resources mapping="/webjars/ckeditor/**"
 		location="classpath:/META-INF/resources/webjars/ckeditor/4.3.4/" />
-	<mvc:resources mapping="/extjs/**"
+	<mvc:resources mapping="/webjars/extjs/**"
 		location="classpath:/META-INF/resources/webjars/extjs/4.2.1.883/" />
 	<mvc:default-servlet-handler />
 

@@ -6,6 +6,7 @@
 <title><tiles:insertAttribute name="title" /></title>
 
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
 
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/webjars/jquery-ui/themes/base/jquery-ui.css" />

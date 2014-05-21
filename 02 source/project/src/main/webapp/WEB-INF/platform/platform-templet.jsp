@@ -6,14 +6,15 @@
 <title>西藏水利工程招标投标公共服务平台</title>
 
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
 
 <link rel="stylesheet" type="text/css"
-	href="<%=application.getContextPath()%>/extjs/resources/css/ext-all-gray.css" />
+	href="<%=application.getContextPath()%>/webjars/extjs/resources/css/ext-all-gray.css" />
 
 <script type="text/javascript"
-	src="<%=application.getContextPath()%>/extjs/ext-all-debug.js"></script>
+	src="<%=application.getContextPath()%>/webjars/extjs/ext-all.js"></script>
 <script type="text/javascript"
-	src="<%=application.getContextPath()%>/extjs/locale/ext-lang-zh_CN.js"></script>
+	src="<%=application.getContextPath()%>/webjars/extjs/locale/ext-lang-zh_CN.js"></script>
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/webjars/ckeditor/ckeditor.js"></script>
