@@ -1,6 +1,10 @@
 package com.wizard.official.platform.spring.hibernate.utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -57,6 +61,25 @@ public class PlatformUtil {
 			fileName = URLEncoder.encode(fileName, "UTF-8");
 		}
 		return fileName;
+	}
+
+	public static void copyFile(File oldFile, File newFile) {
+		try {
+			int byteread = 0;
+			if (oldFile.exists()) {
+				InputStream inStream = new FileInputStream(oldFile);
+				FileOutputStream fs = new FileOutputStream(newFile);
+				byte[] buffer = new byte[1024];
+				while ((byteread = inStream.read(buffer)) != -1) {
+					fs.write(buffer, 0, byteread);
+				}
+				inStream.close();
+				fs.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
