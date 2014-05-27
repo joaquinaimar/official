@@ -1,6 +1,8 @@
 package com.wizard.official.platform.spring.hibernate.database;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.hibernate.Criteria;
@@ -93,7 +95,27 @@ public class BaseDao {
 		count.setFirstResult(0);
 		count.setMaxResults(0);
 		count.setProjection(Projections.rowCount());
+		clearOrderBy(count);
 		return (Long) count.uniqueResult();
+	}
+
+	private void clearOrderBy(Criteria criteria) {
+		try {
+			Field order = criteria.getClass().getDeclaredField("parent");
+			order.setAccessible(true);
+			clearOrderBy((Criteria) order.get(criteria));
+		} catch (NoSuchFieldException e) {
+			try {
+				Field order = criteria.getClass().getDeclaredField(
+						"orderEntries");
+				order.setAccessible(true);
+				order.set(criteria, new ArrayList());
+			} catch (Exception ex) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public PageResponse pageQuery(Query query, PageRequest request) {
@@ -112,7 +134,8 @@ public class BaseDao {
 		int fromIndex = queryString.toLowerCase().indexOf("from");
 		String countString = "SELECT COUNT(*) AS CNT "
 				+ queryString.substring(fromIndex);
-		Query countQuery = createQuery(countString);
+		int orderIndex = countString.toLowerCase().lastIndexOf("order");
+		Query countQuery = createQuery(countString.substring(0, orderIndex));
 		countQuery.setProperties(obj);
 		return (Long) countQuery.uniqueResult();
 	}
@@ -130,7 +153,8 @@ public class BaseDao {
 		int fromIndex = queryString.toLowerCase().indexOf("from");
 		String countString = "SELECT COUNT(*) AS CNT "
 				+ queryString.substring(fromIndex);
-		Query countQuery = createQuery(countString);
+		int orderIndex = countString.toLowerCase().lastIndexOf("order");
+		Query countQuery = createQuery(countString.substring(0, orderIndex));
 		countQuery.setProperties(bean);
 		return (Long) countQuery.uniqueResult();
 	}
