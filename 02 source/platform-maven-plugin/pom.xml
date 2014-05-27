@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wizard.official</groupId>
+	<artifactId>platform-maven-plugin</artifactId>
+	<packaging>maven-plugin</packaging>
+	<version>1.0.0</version>
+	<name>platform.plugin Maven Mojo</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<goalPrefix>platform</goalPrefix>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- dependency -->
+		<maven-plugin-annotations.version>3.2</maven-plugin-annotations.version>
+		<maven-plugin-api.version>2.0</maven-plugin-api.version>
+		<junit.version>4.10</junit.version>
+
+		<!-- build -->
+		<first-maven-plugin.version>2.3</first-maven-plugin.version>
+
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.maven.plugin-tools</groupId>
+			<artifactId>maven-plugin-annotations</artifactId>
+			<version>${maven-plugin-annotations.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- maven-plugin-api -->
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>${maven-plugin-api.version}</version>
+		</dependency>
+
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>first-maven-plugin</artifactId>
+				<version>${first-maven-plugin.version}</version>
+				<configuration>
+					<goalPrefix>${goalPrefix}</goalPrefix>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

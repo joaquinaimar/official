@@ -21,6 +21,7 @@
 		<servlet-api.version>2.5</servlet-api.version>
 		<jsp-api.version>2.2</jsp-api.version>
 		<jstl.version>1.2</jstl.version>
+		<platform.spring.hibernate.version>1.0.0</platform.spring.hibernate.version>
 		<tiles-jsp.version>2.2.2</tiles-jsp.version>
 		<mysql-connector-java.version>5.1.9</mysql-connector-java.version>
 
@@ -35,9 +36,10 @@
 		<!-- build -->
 		<java.version>1.7</java.version>
 		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
-		<maven-deploy-plugin.version>2.8-SNAPSHOT</maven-deploy-plugin.version>
+		<maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
 		<maven-surefire-plugin.version>2.10</maven-surefire-plugin.version>
 		<tomcat7-maven-plugin.version>2.1</tomcat7-maven-plugin.version>
+		<platform.plugin.version>1.0.0</platform.plugin.version>
 
 	</properties>
 
@@ -74,7 +76,7 @@
 		<dependency>
 			<groupId>com.wizard.official</groupId>
 			<artifactId>platform.spring.hibernate</artifactId>
-			<version>1.0.0</version>
+			<version>${platform.spring.hibernate.version}</version>
 		</dependency>
 
 		<!-- tiles -->
@@ -170,6 +172,11 @@
 					<path>/${web.name}</path>
 					<uriEncoding>UTF-8</uriEncoding>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.wizard.official</groupId>
+				<artifactId>platform-maven-plugin</artifactId>
+				<version>${platform.plugin.version}</version>
 			</plugin>
 		</plugins>
 	</build>
