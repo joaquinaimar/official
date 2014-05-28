@@ -32,8 +32,8 @@ public class BaseDao {
 		return (X) getSession().get(clazz, id);
 	}
 
-	public void save(EntityTemplate entity) {
-		getSession().save(entity);
+	public Serializable save(EntityTemplate entity) {
+		return getSession().save(entity);
 	}
 
 	public void delete(EntityTemplate entity) {
