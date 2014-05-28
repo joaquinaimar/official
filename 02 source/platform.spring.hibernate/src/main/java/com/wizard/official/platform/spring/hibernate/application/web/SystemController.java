@@ -36,7 +36,8 @@ public class SystemController {
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public ModelAndView doLogin(HttpServletRequest request,
-			@RequestParam String user, @RequestParam String pwd) throws IOException {
+			@RequestParam String user, @RequestParam String pwd)
+			throws IOException {
 
 		UserInfoEntity userInfo = systemService.login(user, pwd);
 
@@ -53,11 +54,14 @@ public class SystemController {
 	}
 
 	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
-	public ModelAndView logout(HttpServletRequest request) {
+	public ModelAndView logout(HttpServletRequest request) throws IOException {
 		Subject currentUser = SecurityUtils.getSubject();
 		currentUser.logout();
+		Properties prop = new Properties();
+		prop.load(this.getClass().getClassLoader()
+				.getResourceAsStream("config.properties"));
 		return new ModelAndView(new RedirectView(request.getContextPath()
-				+ "/manage"));
+				+ prop.getProperty("shiro.loginUrl")));
 	}
 
 	@RequestMapping(value = "/searchUserInfo.do", method = RequestMethod.GET)
