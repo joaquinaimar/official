@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+
+	<mvc:resources mapping="/webjars/extjs/resources/ext-theme-classic-ex/**"
+		location="/webjars/extjs/resources/ext-theme-classic-ex/" />
+	<mvc:resources mapping="/webjars/extjs/resources/ext-theme-neptune-ex/**"
+		location="/webjars/extjs/resources/ext-theme-neptune-ex/" />
+	<mvc:resources mapping="/webjars/extjs/resources/ext-theme-gray-ex/**"
+		location="/webjars/extjs/resources/ext-theme-gray-ex/" />
+	<import resource="spring/mvc.xml" />
+
+	<context:component-scan base-package="cn.lonwin.fax"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 平台 -->
+	<mvc:view-controller path="/" view-name="platform/login" />
+	<mvc:view-controller path="/main" view-name="platform/main" />
+	<mvc:view-controller path="/register" view-name="platform/register" />
+	<mvc:view-controller path="/user-manage"
+		view-name="platform/module/user-manage" />
+	<mvc:view-controller path="/permit-manage"
+		view-name="platform/module/permit-manage" />
+
+	<!-- 模块 -->
+	<mvc:view-controller path="/homepage" view-name="module/homepage" />
+	<mvc:view-controller path="/addressBook" view-name="module/addressBook" />
+	<mvc:view-controller path="/inbox" view-name="module/inbox" />
+	<mvc:view-controller path="/outbox" view-name="module/outbox" />
+	<mvc:view-controller path="/draftbox" view-name="module/draftbox" />
+	<mvc:view-controller path="/recyclebox" view-name="module/recyclebox" />
+	<mvc:view-controller path="/outFax" view-name="module/outFax" />
+
+</beans>

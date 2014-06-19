@@ -1,0 +1,40 @@
+* {
+	margin: 0 auto;
+	padding: 0;
+}
+
+.bg {
+	background: url(../image/login/dl.png);
+	width: 1280px;
+	height: 800px;
+}
+
+.dl {
+	background: url(../image/login/dlk_11.png) no-repeat;
+	width: 621px;
+	height: 578px
+}
+
+.bt1 {
+	background: url(../image/login/bt_03.png) no-repeat;
+	width: 93px;
+	height: 32px;
+}
+
+.bt2 {
+	background: url(../image/login/bt_05.png) no-repeat;
+	width: 93px;
+	height: 32px
+}
+
+.font {
+	font-family: "微软雅黑";
+	font-size: 18px
+}
+
+.input {
+	height: 1.5em;
+	width: 90%;
+	height: 20px;
+	border-radius: 8px;
+}

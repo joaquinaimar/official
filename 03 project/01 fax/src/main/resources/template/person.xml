@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+	<column>
+		<index>0</index>
+		<name>code</name>
+	</column>
+	<column>
+		<index>1</index>
+		<name>name</name>
+	</column>
+	<column>
+		<index>2</index>
+		<name>phoneNo</name>
+	</column>
+	<column>
+		<index>3</index>
+		<name>faxNo</name>
+	</column>
+	<column>
+		<index>4</index>
+		<name>email</name>
+	</column>
+	<column>
+		<index>5</index>
+		<name>orgCode</name>
+	</column>
+</template>
