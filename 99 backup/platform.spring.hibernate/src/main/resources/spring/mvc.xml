@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="com.wizard.official.platform.spring.hibernate.application"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<mvc:resources mapping="/webjars/ckeditor/plugins/UploadImage/**"
+		location="/webjars/ckeditor/plugins/UploadImage/" />
+	<mvc:resources mapping="/webjars/jquery/**"
+		location="classpath:/META-INF/resources/webjars/jquery/2.1.0/" />
+	<mvc:resources mapping="/webjars/jquery-ui/**"
+		location="classpath:/META-INF/resources/webjars/jquery-ui/1.10.4/" />
+	<mvc:resources mapping="/webjars/jquery-form/**"
+		location="classpath:/META-INF/resources/webjars/jquery-form/3.28.0-2013.02.06/" />
+	<mvc:resources mapping="/webjars/bootstrap/**"
+		location="classpath:/META-INF/resources/webjars/bootstrap/3.0.3/" />
+	<mvc:resources mapping="/webjars/ckeditor/**"
+		location="classpath:/META-INF/resources/webjars/ckeditor/4.3.4/" />
+	<mvc:resources mapping="/webjars/extjs/**"
+		location="classpath:/META-INF/resources/webjars/extjs/4.2.1.883/" />
+	<mvc:default-servlet-handler />
+
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
+
+	<bean id="handlerAdapter"
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean
+				class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+				<property name="conversionService" ref="conversionService" />
+			</bean>
+		</property>
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.FormHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.BufferedImageHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.ResourceHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver">
+		<property name="cache" value="false" />
+	</bean>
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="checkRefresh" value="true" />
+		<property name="validateDefinitions" value="false" />
+		<property name="definitions">
+			<list>
+				<value>classpath:/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>
