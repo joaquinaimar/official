@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions >
+<tiles-definitions>
+
+	<definition name="platform/main" template="/WEB-INF/platform/main.jsp">
+		<put-attribute name="title" value="自动化传真系统" type="string" />
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+	</definition>
+
+	<definition name="platform/login" template="/WEB-INF/platform/login.jsp">
+		<put-attribute name="title" value="自动化传真系统" type="string" />
+	</definition>
+
+	<definition name="platform-template" template="/WEB-INF/platform/platform-templet.jsp">
+		<put-attribute name="title" value="自动化传真系统" type="string" />
+	</definition>
+	<definition name="platform/module/*" extends="platform-template">
+		<put-attribute name="body" value="/WEB-INF/platform/module/{1}.jsp" />
+		<put-attribute name="script" value="/platform/script/module/{1}.js"
+			type="string" />
+		<put-attribute name="style" value="/platform/style/module/{1}.css"
+			type="string" />
+	</definition>
+
+	<definition name="platform/register" template="/WEB-INF/platform/register.jsp">
+		<put-attribute name="title" value="自动化传真系统" type="string" />
+	</definition>
+
+	<definition name="default-templet" template="/WEB-INF/tiles/default-templet.jsp">
+		<put-attribute name="title" value="自动化传真系统" type="string" />
+	</definition>
+	<definition name="module/*" extends="default-templet">
+		<put-attribute name="body" value="/WEB-INF/views/module/{1}.jsp" />
+		<put-attribute name="script" value="/resources/script/module/{1}.js"
+			type="string" />
+		<put-attribute name="style" value="/resources/style/module/{1}.css"
+			type="string" />
+	</definition>
+
+</tiles-definitions>
